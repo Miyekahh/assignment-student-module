@@ -17,19 +17,24 @@ export class StudentController {
     findAll(): Promise<Student[]> {
         return this.studentService.findAll();
     }
+
     @Get(':id')
     async findOne(@Param('id') id: number) {
-    return this.studentService.findOne(id);
-}
-@Patch(':id')
-update(@Param('id') id: number, @Body() updateData: Partial<Student>) {
-    return this.studentService.update(id, updateData);
-}
-@Delete(':id')
-remove(@Param('id') id: number) {
-    return this.studentService.remove(id);
-}
+        return this.studentService.findOne(id);
+    }
 
+
+    @Patch(':id')
+    update(@Param('id') id: number, @Body() updateData: Partial<Student>) {
+        return this.studentService.update(id, updateData);
+    }
+
+
+
+    @Delete(':id')
+    remove(@Param('id') id: number) {
+        return this.studentService.remove(id);
+    }
 
 
 }
