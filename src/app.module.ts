@@ -10,7 +10,7 @@ import { Student } from './student/entities/student.entities';
       host: 'localhost',
       port: 3306,
       username: 'root',
-      password: 'mieca123',
+      password: '4268$@^*',
       database: 'student_db',
       entities: [Student],
       synchronize: true,
