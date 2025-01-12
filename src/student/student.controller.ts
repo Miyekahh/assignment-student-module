@@ -1,10 +1,6 @@
 import { Controller, Get, Post, Body, Param, Patch, Delete } from '@nestjs/common';
 import { StudentService } from './student.service';
 import { Student } from './entities/student.entities';
-import { Controller, Get, Post, Body, Param, Patch, Delete } from '@nestjs/common';
-import { StudentService } from './student.service';
-import { Student } from './entities/student.entities';
-
 @Controller('students')
 export class StudentController {
     constructor(private readonly studentService: StudentService) { }
