@@ -1,6 +1,6 @@
 import { Controller, Get, Post, Body, Param, Patch, Delete } from '@nestjs/common';
 import { StudentService } from './student.service';
-import { Student } from './entities/student.entity';
+import { Student } from './entities/student.entities';
 
 @Controller('students')
 export class StudentController {
@@ -17,15 +17,10 @@ export class StudentController {
     findAll(): Promise<Student[]> {
         return this.studentService.findAll();
     }
-    @Get(':id')
-    async findOne(@Param('id') id: number) {
-    return this.studentService.findOne(id);
-}
-@Patch(':id')
-update(@Param('id') id: number, @Body() updateData: Partial<Student>) {
-    return this.studentService.update(id, updateData);
-}
 
-
+    @Patch(':id')
+    update(@Param('id') id: number, @Body() updateData: Partial<Student>) {
+        return this.studentService.update(id, updateData);
+    }
 
 }
