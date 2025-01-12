@@ -20,10 +20,11 @@ export class StudentService {
     async findAll(): Promise<Student[]> {
         return this.studentRepository.find();
     }
+
     async findOne(id: number): Promise<Student> {
-        const student = await this.studentRepository.findOne({ where: { id } });
-        if (!student) {
+        const student = await this.studentRepository.findOne({ where: {id} });
+        if (!student){
         }
         return student;
-    }
+    } 
 }

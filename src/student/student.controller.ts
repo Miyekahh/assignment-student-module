@@ -18,4 +18,10 @@ export class StudentController {
         return this.studentService.findAll();
     }
 
+    @Get(':id')
+    async findOne(@Param('id') id: number) {
+        return this.studentService.findOne(id);
+    }
+
+
 }
