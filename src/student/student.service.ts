@@ -10,20 +10,31 @@ export class StudentService {
         private studentRepository: Repository<Student>,
     ) { }
 
-    // // Create a student
-    // async create(studentData: Partial<Student>): Promise<Student> {
-    //     const student = this.studentRepository.create(studentData);
-    //     return this.studentRepository.save(student);
-    // }
+    // Create a student
+    async create(studentData: Partial<Student>): Promise<Student> {
+        const student = this.studentRepository.create(studentData);
+        return this.studentRepository.save(student);
+    }
 
-    // // Fetch all students
-    // async findAll(): Promise<Student[]> {
-    //     return this.studentRepository.find();
-    // }
-    // async findOne(id: number): Promise<Student> {
-    //     const student = await this.studentRepository.findOne({ where: { id } });
-    //     if (!student) {
-    //     }
-    //     return student;
-    // }
+    // Fetch all students
+    async findAll(): Promise<Student[]> {
+        return this.studentRepository.find();
+    }
+
+    async findOne(id: number): Promise<Student> {
+        const student = await this.studentRepository.findOne({ where: {id} });
+        if (!student){
+        }
+        return student;
+    } 
+
+    async update(id: number, updateData: Partial<Student>): Promise<Student> {
+        await this.studentRepository.update(id, updateData);
+        return this.studentRepository.findOneBy({ id });
+    }
+
+    async remove(id: number): Promise<void> {
+        await this.studentRepository.delete(id);
+    }
+
 }
